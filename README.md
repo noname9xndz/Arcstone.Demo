@@ -10,7 +10,7 @@
   }
 ```
 
-# build all solution
+# build all project
   - dotnet build
 
 # Update-Database
