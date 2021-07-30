@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcstone.Demo.Api", "Arcstone.Demo.Api\Arcstone.Demo.Api.csproj", "{EEE6248E-B60B-46A2-AB7F-374C7E232ABD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arcstone.Demo.Test", "Arcstone.Demo.Test\Arcstone.Demo.Test.csproj", "{5F711F18-F350-4C35-AFE3-21414F162C59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcstone.Demo.Application", "Arcstone.Demo.Application\Arcstone.Demo.Application.csproj", "{54FDD0E6-0F91-4DC6-AC20-80B4B084EF54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Noname.UnitOfWork.Lib", "Noname.UnitOfWork.Lib\Noname.UnitOfWork.Lib.csproj", "{7E57A0E4-530D-4E4E-9D0D-A541565D8921}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arcstone.Demo.Client", "Arcstone.Demo.Client\Arcstone.Demo.Client.csproj", "{2BD7BC42-49F4-4696-87B3-194542DDA861}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB83657F-94E2-4398-9019-CFF56C26CF64}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEE6248E-B60B-46A2-AB7F-374C7E232ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE6248E-B60B-46A2-AB7F-374C7E232ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE6248E-B60B-46A2-AB7F-374C7E232ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE6248E-B60B-46A2-AB7F-374C7E232ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F711F18-F350-4C35-AFE3-21414F162C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F711F18-F350-4C35-AFE3-21414F162C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F711F18-F350-4C35-AFE3-21414F162C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F711F18-F350-4C35-AFE3-21414F162C59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54FDD0E6-0F91-4DC6-AC20-80B4B084EF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54FDD0E6-0F91-4DC6-AC20-80B4B084EF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54FDD0E6-0F91-4DC6-AC20-80B4B084EF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54FDD0E6-0F91-4DC6-AC20-80B4B084EF54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E57A0E4-530D-4E4E-9D0D-A541565D8921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E57A0E4-530D-4E4E-9D0D-A541565D8921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E57A0E4-530D-4E4E-9D0D-A541565D8921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E57A0E4-530D-4E4E-9D0D-A541565D8921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BD7BC42-49F4-4696-87B3-194542DDA861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD7BC42-49F4-4696-87B3-194542DDA861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD7BC42-49F4-4696-87B3-194542DDA861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD7BC42-49F4-4696-87B3-194542DDA861}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF753796-6078-40B1-A396-7173FB90442C}
+	EndGlobalSection
+EndGlobal
