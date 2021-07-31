@@ -1,9 +1,12 @@
 ﻿using Arcstone.Demo.Client.Models;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace Arcstone.Demo.Client.Heplers
 {
@@ -31,6 +34,22 @@ namespace Arcstone.Demo.Client.Heplers
                     StringComparison.InvariantCultureIgnoreCase)) return null;
             //throw new SecurityTokenException("Invalid token");
             return principal;
+        }
+
+        public static string GetJwtTokenFromClaim(this IEnumerable<Claim> claims)
+        {
+            return claims?.FirstOrDefault(x => x.Type.Equals("JwtToken", StringComparison.OrdinalIgnoreCase))?.Value;
+        }
+
+        public static string GetJwtTokenFromClaim(this IHttpContextAccessor httpContextAccessor)
+        {
+            var token = httpContextAccessor?.HttpContext?.User?.FindFirst("JwtToken")?.Value;
+            if (!string.IsNullOrWhiteSpace(token))
+            {
+                return token;
+            }
+
+            return string.Empty;
         }
     }
 }

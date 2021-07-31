@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Arcstone.Demo.Client.Heplers;
 
 namespace Arcstone.Demo.Client.Services
 {
@@ -69,8 +70,15 @@ namespace Arcstone.Demo.Client.Services
 
             if (requiredLogin)
             {
-                var token = await _httpContextAccessor.HttpContext.GetTokenAsync("access_token");
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                var token = _httpContextAccessor.GetJwtTokenFromClaim();
+                if (!string.IsNullOrWhiteSpace(token))
+                {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                }
+                else
+                {
+                    throw new Exception("Has error.");
+                }
             }
             var response = await client.PostAsync(url, httpContent);
             var body = await response.Content.ReadAsStringAsync();

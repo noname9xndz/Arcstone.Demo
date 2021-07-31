@@ -10,17 +10,20 @@ using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Arcstone.Demo.Application.Domain.Project.Queries;
 
 namespace Arcstone.Demo.Client.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserClientService _userClientService;
+        private readonly IProjectClientService _projectClientService;
         private readonly ConfigAudience _appSettings;
 
-        public AccountController(IUserClientService userClientService, IOptions<ConfigAudience> appSettings)
+        public AccountController(IUserClientService userClientService, IOptions<ConfigAudience> appSettings, IProjectClientService projectClientService)
         {
             _userClientService = userClientService;
+            _projectClientService = projectClientService;
             _appSettings = appSettings.Value;
         }
 
@@ -46,6 +49,8 @@ namespace Arcstone.Demo.Client.Controllers
 
                     if (jwToken != null)
                     {
+                        var claims =  jwToken.Claims.ToList();
+                        claims.Add(new Claim("JwtToken", $"{token.Result}"));
                         long expiresTime = DateTime.Now.AddHours(1).Hour;
                         var expiresToken = jwToken.Claims.FirstOrDefault(x => x.Type.Contains("exp"))?.Value;
                         if (expiresToken != null)
@@ -56,7 +61,7 @@ namespace Arcstone.Demo.Client.Controllers
                             }
                         }
                         var claimsIdentity = new ClaimsIdentity(
-                            jwToken.Claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                            claims, CookieAuthenticationDefaults.AuthenticationScheme);
                         var authProperties = new AuthenticationProperties
                         {
                             //AllowRefresh = true,
@@ -83,6 +88,19 @@ namespace Arcstone.Demo.Client.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectToAction(nameof(AccountController.Login), "Account");
+        }
+
+        public async Task<IActionResult> Test()
+        {
+            var request = new GetAllProjectQuery()
+            {
+                PageIndex = 1,
+                PageSize = 10,
+                StartTime = 1627142405,
+                EndTime = 1627660805
+            };
+            var models = await _projectClientService.GetProjectsPaging(request);
+            return View();
         }
     }
 }

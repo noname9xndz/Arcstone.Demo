@@ -40,6 +40,7 @@ namespace Arcstone.Demo.Client
             Configuration.GetSection("Audience").Bind(audience);
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             services.AddTransient<IUserClientService, UserClientService>();
+            services.AddTransient<IProjectClientService, ProjectClientService>();
 
             var builder = services.AddControllersWithViews();
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
